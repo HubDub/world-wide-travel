@@ -1,11 +1,18 @@
 "use strict";
 
-app.controller("BookCtrl", function($scope, BookStorage) {
-  BookStorage.getBookList()
-    .then((bookCollection) => {
-      console.log(bookCollection);
-      console.log(bookCollection.guides);
-      $scope.guides = bookCollection.guides;
-      console.log($scope.guides);
+app.controller("BookCtrl", function($scope, $q, $http) {
+  let getBookList = () => {
+    return $q((resolve, reject) => {
+      $http.get("../../data/guides.json")
+        .success((bookObject) => {
+          resolve(bookObject);
+        })
+        .error((error) => {
+          reject(error);
+        });
     });
+  };
+  getBookList().then(function(bookCollection) {
+    $scope.guides = bookCollection.guides;
+  });
 });
