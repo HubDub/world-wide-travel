@@ -5,6 +5,7 @@ app.controller("BookCtrl", function($scope, $q, $http) {
     return $q((resolve, reject) => {
       $http.get("../../data/guides.json")
         .success((bookObject) => {
+          console.log(bookObject);
           resolve(bookObject);
         })
         .error((error) => {
