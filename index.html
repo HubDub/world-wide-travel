@@ -7,13 +7,7 @@
 </head>
 <body ng-app="TravelBookApp">
 <h1>Welcome to World Wide Travel</h1>
-<div ng-controller="BookCtrl">
-  <ul ng-repeat="book in guides">
-    <li>Type of tour: {{book.type}}</li>
-    <li>Guide title: {{book.title}}</li>
-    <li>Guide price: {{book.price}}</li>
-  </ul>
-</div>
+<div ng-view></div>
 
 <!-- component links -->
 <script type="text/javascript" src="lib/bower_components/jquery/dist/jquery.min.js"></script>

@@ -1,6 +1,7 @@
 "use strict";
 
 app.controller("BookCtrl", function($scope, BookStorage) {
+  console.log("app.controller is here");
   BookStorage.getBookList()
     .then((bookCollection) => {
       console.log(bookCollection);
